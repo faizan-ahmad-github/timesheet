@@ -1,0 +1,22 @@
+{% if request.user.is_authenticated %}
+    <a href="{% url 'logout' %}">Logout</a>
+{% endif %}
+
+<p>You are logged in!</p>
+
+<form method="POST" action="{% url 'log_time' %}">
+ {% csrf_token %}
+    <input type="submit" value="Clock In" >
+</form>
+
+
+<form method="POST" action="{% url 'log_pause' %}">
+ {% csrf_token %}
+    <input type="submit" value="Pause" >
+</form>
+
+
+<form method="POST" action="{% url 'log_stop' %}">
+ {% csrf_token %}
+    <input type="submit" value="Clock Out" >
+</form>
